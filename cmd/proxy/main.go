@@ -120,8 +120,8 @@ func newHTTPHandler(logger log.Logger, coordinator *Coordinator, mux *http.Serve
 
 	// api handlers
 	handlers := map[string]http.HandlerFunc{
-		"/push":    basicAuth(h.handlePush),
-		"/poll":    basicAuth(h.handlePoll),
+		"/push":    h.handlePush,
+		"/poll":    h.handlePoll,
 		"/metrics": promhttp.Handler().ServeHTTP,
 	}
 
